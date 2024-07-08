@@ -20,3 +20,11 @@ Route::get('/', function () {
 Route::get('/empresa', function() { 
     return view ('site/empresa');    
 });
+
+Route::any('/any', function() { 
+    return 'rotas any permite todos os tipos de acesso http (put, delete, get e post)';
+});
+
+Route::match(['get', 'post'], '/match', function() { 
+    return 'permite apenas acessos definidos, o primeiro parametro diz quais são permitidos, nesse caso get e post';
+});
