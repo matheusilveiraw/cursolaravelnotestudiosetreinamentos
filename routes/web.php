@@ -42,3 +42,11 @@ Route::get('/produto/{id}/{cat?}', function($id, $cat = "") {
 Route::redirect('/sobre', '/empresa'); //versão mais curta do código de cima 
 
 Route::view('/empresa', 'site/empresa'); //versão mais curta do código comentado na linha 20-22
+
+Route::get('/news', function() { 
+    return view('news');
+})->name('noticias');
+
+Route::get('/novidades', function() { 
+    return redirect()->route('noticias');
+}); //redireciona usando o atributo name 
