@@ -17,9 +17,9 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/empresa', function() { 
-    return view ('site/empresa');    
-});
+// Route::get('/empresa', function() { 
+//     return view ('site/empresa');    
+// });
 
 Route::any('/any', function() { 
     return 'rotas any permite todos os tipos de acesso http (put, delete, get e post)';
@@ -34,3 +34,11 @@ Route::get('/produto/{id}/{cat?}', function($id, $cat = "") {
     //o cat igual a nada para definiri o valor dele como uma string vazia
     return "o id do produto é: ".$id. "<br>" . "a categoria é: ".$cat;
 });
+
+// Route::get('/sobre', function () { 
+//     return redirect('/empresa');
+// });
+
+Route::redirect('/sobre', '/empresa'); //versão mais curta do código de cima 
+
+Route::view('/empresa', 'site/empresa'); //versão mais curta do código comentado na linha 20-22
